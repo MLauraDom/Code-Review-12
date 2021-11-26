@@ -52,7 +52,11 @@ img {
 }
 
 .card {
-    height: 65vh;
+    height: 70vh;
+}
+
+.btn {
+    color: white;
 }
 
 fieldset {
