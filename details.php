@@ -39,11 +39,8 @@ if ($_GET['id']) {
     <header>
         <div class="menu">
             <ul class="nav">
-                <nav class="navbar navbar-expand-lg navbar-dark">
+                <nav class="navbar navbar-expand navbar-dark">
                     <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -81,15 +78,11 @@ if ($_GET['id']) {
                         <h5 class='card-title'><?php echo $name ?></h5>
                     </div>
                     <div class='card-body'>
-                        <p class='card-text'><b><?php echo $price ?></b></p>
-                        <p class='card-text'><i><?php echo $description ?></i></p>
+                        
+                        <p class='card-text'><?php echo $description ?></p>
                     </div>
                     <div class='card-footer'>
-                        <tr>
-                            <td><a href='update.php?id= <?php echo $id ?> '><button class=' btn btn-success btn-sm' type='button'>Edit</button></a>
-                            <td><a href='delete.php?id= <?php echo $id ?> '><button class=' btn btn-danger btn-sm' type='button'>Delete</button></a></td>
-                            <td><a href="index.php"><button class="btn btn-primary btn-sm" type="button">Home</button></a></td>
-                        </tr>
+                        <p class='card-text'><b><?php echo $price ?></b></p>
                     </div>
                 </div>
             </div>

@@ -36,18 +36,15 @@ mysqli_close($connect);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CR12 - Customize</title>
     <?php require_once 'components/boot.php' ?>
-    <link rel="stylesheet" type='text/css' href="css/stylea.css" />
+    <link rel="stylesheet" type='text/css' href="css/style.css" />
 </head>
 
 <body class="bg-light">
-    <header>
+    <header class="header2">
         <div class="menu">
             <ul class="nav">
-                <nav class="navbar navbar-expand-lg navbar-dark">
+                <nav class="navbar navbar-expand navbar-dark">
                     <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -57,6 +54,10 @@ mysqli_close($connect);
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="admin.php">Customize
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="create.php">Add Place
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -75,7 +76,6 @@ mysqli_close($connect);
         </div>
     </header>
     <main class="container p-3">
-        <a href="create.php"><button class='btn btn-primary' type="button">Add Place</button></a>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
             <?= $tbody; ?>
         </div>

@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
-header {
+@media screen and (max-width: 480px) {
+    
+.menu {
+    width: 50vw;
+    align-self: flex-end;
+}
+
+.header1 {
     background-image: url("../pictures/hero.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -11,9 +20,15 @@ header {
     flex-direction: column;
 }
 
-.menu {
-    width: 30vw;
-    align-self: flex-end;
+.header2 {
+    background-image: url("../pictures/heroa.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 50vh;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .nav-link {
@@ -26,6 +41,7 @@ header {
 .title {
     text-shadow: 7px 1px 9px #0f0a06;
     -webkit-text-stroke: 0.4px #160e08;
+    font-family: 'Merienda', cursive;;
 }
 footer {
     background-image: url("../pictures/footer.jpg");
@@ -70,4 +86,185 @@ fieldset {
     height: 70px !important;
 }
 
+main {
+    font-family: 'Teko', sans-serif;
+}
+}
 
+@media screen and (min-width: 481px) and (max-width: 768px){
+    
+    .menu {
+        width: 40vw;
+        align-self: flex-end;
+    }
+
+    .header1 {
+        background-image: url("../pictures/hero.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        height: 60vh;
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    .header2 {
+        background-image: url("../pictures/heroa.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        height: 50vh;
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    .nav-link {
+        text-shadow: 7px 1px 9px #29333b;
+        -webkit-text-stroke: 0.3px #b6cce0;
+        font-size: 1.2em;
+        font-family: 'Acme', sans-serif;
+    }
+    
+    .title {
+        text-shadow: 7px 1px 9px #0f0a06;
+        -webkit-text-stroke: 0.4px #160e08;
+        font-family: 'Merienda', cursive;;
+    }
+    footer {
+        background-image: url("../pictures/footer.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+    }
+    
+    footer a {
+        color:white;
+        text-decoration: none;
+        -webkit-text-stroke: 0.5px #160e08;
+        text-shadow: 7px 1px 9px #201f1b;
+    }
+    
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .card-img-top {
+        height: 40vh;
+    }
+    
+    .card {
+        height: 70vh;
+    }
+    
+    .btn {
+        color: white;
+    }
+    
+    fieldset {
+        margin: auto;
+        margin-top: 100px;
+        width: 60%;
+    }
+    
+    .img-thumbnail {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    main {
+        font-family: 'Teko', sans-serif;
+    }
+    }
+
+@media screen and (min-width: 768px){
+    
+    .menu {
+        width: 30vw;
+        align-self: flex-end;
+    }
+
+    .header1 {
+        background-image: url("../pictures/hero.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        height: 60vh;
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    .header2 {
+        background-image: url("../pictures/heroa.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+        height: 50vh;
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    .nav-link {
+        text-shadow: 7px 1px 9px #29333b;
+        -webkit-text-stroke: 0.3px #b6cce0;
+        font-size: 1.2em;
+        font-family: 'Acme', sans-serif;
+    }
+    
+    .title {
+        text-shadow: 7px 1px 9px #0f0a06;
+        -webkit-text-stroke: 0.4px #160e08;
+        font-family: 'Merienda', cursive;;
+    }
+    footer {
+        background-image: url("../pictures/footer.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:cover;
+    }
+    
+    footer a {
+        color:white;
+        text-decoration: none;
+        -webkit-text-stroke: 0.5px #160e08;
+        text-shadow: 7px 1px 9px #201f1b;
+    }
+    
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .card-img-top {
+        height: 40vh;
+    }
+    
+    .card {
+        height: 70vh;
+    }
+    
+    .btn {
+        color: white;
+    }
+    
+    fieldset {
+        margin: auto;
+        margin-top: 100px;
+        width: 60%;
+    }
+    
+    .img-thumbnail {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    main {
+        font-family: 'Teko', sans-serif;
+    }
+    }
