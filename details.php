@@ -122,10 +122,11 @@ if ($_GET['id']) {
 
         function showWeather() {
             const request = new XMLHttpRequest();
-            request.open("GET", 'https://api.openweathermap.org/data/2.5/weather?lat=<?php echo $longitude. ',lon='. $latitude ?>&appid=597a01554e0436f5651fabb2547e566d', true);
+            request.open("GET", 'https://api.darksky.net/forecast/e329256a741df2bcccffedd3600287c2/<?php echo $latitude.",".$longitude?>?exclude=minutely,hourly,daily,alerts,flags', true);
             request.onload = function() {
                 if (this.status == 200) {
                     let weather = JSON.parse(this.responseText);
+                    console.log(weather);
                     let fahrenheit = weather.currently.temperature;
                     let celsius = round((fahrenheit - 32) * (5 / 9), 2);
                     if (celsius <= 0) {
