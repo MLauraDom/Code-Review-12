@@ -66,7 +66,7 @@ mysqli_close($connect);
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ajaxOffers.html">
+                                    <a class="nav-link" href="ajax/ajaxOffers.html">
                                         Ajax Offers
                                     </a>
                                 </li>
