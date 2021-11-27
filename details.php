@@ -116,6 +116,7 @@ if ($_GET['id']) {
     <footer class=" p-5">
         <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
     </footer>
+    <!-- The API Adress it's not working, so i let it go... -->
     <script>
         document.getElementById("check").addEventListener("click", showWeather, false);
 
