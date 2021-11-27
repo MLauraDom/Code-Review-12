@@ -95,17 +95,14 @@ if ($_GET['id']) {
         $weather = json_decode($result);
         $fahrenheit = $weather->currently->temperature;
         $celsius = round(($fahrenheit - 32) * (5 / 9), 2);
-        
+
         if ($celsius <= 0) {
             $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/ice.jpg' class='card-img' alt='Freezing Wheather'>";
-        }
-        elseif ($celsius>0 && $celsius<=15){
+        } elseif ($celsius > 0 && $celsius <= 15) {
             $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/melt.jpg' class='card-img' alt='Cold Wheather'>";
-        }
-        elseif ($celsius>15 && $celsius<=30){
+        } elseif ($celsius > 15 && $celsius <= 30) {
             $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/sun.jpg' class='card-img' alt='Warm Wheather'>";
-        }
-        elseif ($celsius>30){
+        } elseif ($celsius > 30) {
             $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/hot.jpg' class='card-img' alt='Hot Wheather'>";
         }
         $wbody2 = "
@@ -119,14 +116,16 @@ if ($_GET['id']) {
                     </div></div>";
         ?>
         <script>
-    function showWheather() {
-        document.getElementById("vreme") = <?php echo $wbody1.$wbody2 ?>;
-    }
-            document.getElementById("check").addEventListener("click", showWheather());
+            function showWheather() {
+                document.getElementById("vreme").innerHTML = <?php echo $wbody1 . $wbody2 ?>;
+            }
+            document.getElementById("check").addEventListener("click", function() {
+                showWheather();
+            });
         </script>
         <div id="vreme">
-            <p class="btn btn-info check">Check the Wheather</p>
-    </div>
+            <p class="btn btn-info m-3" id="check">Check the Wheather</p>
+        </div>
         <div class='m-5' style="height:50vh;">
             <div class='row g-0'>
                 <div class='col-md-6' id="map" style="height:50vh;">
