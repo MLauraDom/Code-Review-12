@@ -117,12 +117,16 @@ if ($_GET['id']) {
                             <p class='h5 meteo'>{$fahrenheit}°F</p>
                         </div>
                     </div></div>";
-
-        echo $wbody1.$wbody2;
-
         ?>
-
-
+        <script>
+    function showWheather() {
+        document.getElementById("vreme") = <?php echo $wbody1.$wbody2 ?>;
+    }
+            document.getElementById("check").addEventListener("click", showWheather());
+        </script>
+        <div id="vreme">
+            <p class="btn btn-info check">Check the Wheather</p>
+    </div>
         <div class='m-5' style="height:50vh;">
             <div class='row g-0'>
                 <div class='col-md-6' id="map" style="height:50vh;">
