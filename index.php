@@ -74,8 +74,9 @@ mysqli_close($connect);
             <p class="h1 text-white text-center title">Mount Everest</p>
         </div>
     </header>
-    <main class="container p-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <main class="container p-5">
+        <h1 class="text-center text-primary shadow-lg">Travell Offers</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 p-5">
             <?= $tbody; ?>
         </div>
         </div>
