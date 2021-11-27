@@ -73,56 +73,6 @@ if ($_GET['id']) {
         </div>
     </header>
     <main class="pt-5">
-
-        <?php
-
-        function build_query_string(array $params)
-        {
-            $query_string = http_build_query($params);
-            return $query_string;
-        }
-        function curl_get($url)
-        {
-            $client = curl_init($url);
-            curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($client);
-            curl_close($client);
-            return $response;
-        }
-
-        $url = 'https://api.darksky.net/forecast/e329256a741df2bcccffedd3600287c2/' . $longitude . ',' . $latitude . '?exclude=minutely,hourly,daily,alerts,flags';
-        $result = curl_get($url);
-        $weather = json_decode($result);
-        $fahrenheit = $weather->currently->temperature;
-        $celsius = round(($fahrenheit - 32) * (5 / 9), 2);
-
-        if ($celsius <= 0) {
-            $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/ice.jpg' class='card-img' alt='Freezing Wheather'>";
-        } elseif ($celsius > 0 && $celsius <= 15) {
-            $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/melt.jpg' class='card-img' alt='Cold Wheather'>";
-        } elseif ($celsius > 15 && $celsius <= 30) {
-            $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/sun.jpg' class='card-img' alt='Warm Wheather'>";
-        } elseif ($celsius > 30) {
-            $wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/hot.jpg' class='card-img' alt='Hot Wheather'>";
-        }
-        $wbody2 = "
-            	    <div class='card-img-overlay text-center'>
-                        <h3 class='card-title meteo'>{$weather->timezone}</h1>
-                        <div class='card-body meteo'>
-                            <p class='h5 meteo'>{$weather->currently->summary} </p>
-                            <p class='h5 meteo'>{$celsius}°C</p>
-                            <p class='h5 meteo'>{$fahrenheit}°F</p>
-                        </div>
-                    </div></div>";
-        ?>
-        <script>
-            function showWheather() {
-                document.getElementById("vreme").innerHTML = <?php echo $wbody1 . $wbody2 ?>;
-            }
-            document.getElementById("check").addEventListener("click", function() {
-                showWheather();
-            });
-        </script>
         <div id="vreme">
             <p class="btn btn-info m-3" id="check">Check the Wheather</p>
         </div>
@@ -166,6 +116,39 @@ if ($_GET['id']) {
     <footer class=" p-5">
         <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
     </footer>
+    <script>
+        document.getElementById("check").addEventListener("click", showWeather, false);
+
+        function showWeather() {
+            const request = new XMLHttpRequest();
+            request.open("GET", 'https://api.openweathermap.org/data/2.5/weather?lat=<?php echo $longitude. ',lon='. $latitude ?>&appid=597a01554e0436f5651fabb2547e566d', true);
+            request.onload = function() {
+                if (this.status == 200) {
+                    let weather = JSON.parse(this.responseText);
+                    let fahrenheit = weather.currently.temperature;
+                    let celsius = round((fahrenheit - 32) * (5 / 9), 2);
+                    if (celsius <= 0) {
+                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/ice.jpg' class='card-img' alt='Freezing Wheather'>";
+                    }
+                    else if(celsius>0 && celsius<=15) {
+                       let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/melt.jpg' class='card-img' alt='Cold Wheather'>";
+                    }
+                    else if(celsius>15 && celsius<=30) {
+                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/sun.jpg' class='card-img' alt='Warm Wheather'>";
+                    }
+                    else if(celsius > 30) {
+                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/hot.jpg' class='card-img' alt='Hot Wheather'>";
+                    }
+                    let wbody2 = "<div class = 'card-img-overlay text-center'><h3 class = 'card-title meteo' > {$weather.timezone}</h1><div class = 'card-body meteo'>< p class = 'h5 meteo' > {$weather.currently.summary}</p><p class = 'h5 meteo' > {$celsius}° C </p> <p class = 'h5 meteo'> {$fahrenheit}°F </p></div></div></div > ";
+
+                    output = wbody1 + wbody2;
+                    document.getElementById('vreme').innerHTML = output;
+                    console.log(output);
+                }
+            }
+            request.send(); 
+        }
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtjaD-saUZQ47PbxigOg25cvuO6_SuX3M&callback=initMap" async defer></script>
 </body>
 
