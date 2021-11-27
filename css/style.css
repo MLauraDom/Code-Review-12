@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
-    
+.meteo {
+    text-shadow: 7px 1px 9px #111a1f;
+    -webkit-text-stroke: 0.5px #3d4244;
+    color: white;
+}  
+
 .menu {
     display: flex;
     justify-content: flex-end;
