@@ -34,10 +34,9 @@ if ($_GET['id']) {
 
 </head>
 
-<body>
 
 <body class="bg-light">
-    <header>
+    <header class="header1">
         <div class="menu">
             <ul class="nav">
                 <nav class="navbar navbar-expand navbar-dark">
@@ -54,8 +53,13 @@ if ($_GET['id']) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="displayAll.php">
-                                        Get API
+                                    <a class="nav-link" href="api/displayAll.php">
+                                    displayAll
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ajaxOffers.html">
+                                        Ajax Offers
                                     </a>
                                 </li>
                             </ul>
@@ -68,27 +72,27 @@ if ($_GET['id']) {
             <p class="h1 text-white text-center title">Mount Everest</p>
         </div>
     </header>
-        <main class="container p-3 m-auto" style="width:70vw;">
+    <main class="container p-3 m-auto" style="width:70vw;">
 
-            <legend class='h2 mb-3'>Delete request <img class='img-thumbnail rounded-circle' src='pictures/places/<?php echo $picture ?>' alt="<?php echo $name ?>"></legend>
-            <h5>You have selected the data below:</h5>
-            <table class="table w-75 mt-3">
-                <tr>
-                    <td><?php echo $name ?></td>
-                </tr>
-            </table>
+        <legend class='h2 mb-3'>Delete request <img class='img-thumbnail rounded-circle' src='pictures/places/<?php echo $picture ?>' alt="<?php echo $name ?>"></legend>
+        <h5>You have selected the data below:</h5>
+        <table class="table w-75 mt-3">
+            <tr>
+                <td><?php echo $name ?></td>
+            </tr>
+        </table>
 
-            <h3 class="mb-4">Do you really want to delete this product?</h3>
-            <form action="actions/a_delete.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $id ?>" />
-                <input type="hidden" name="picture" value="<?php echo $picture ?>" />
-                <button class="btn btn-danger" type="submit">Yes, delete it!</button>
-                <a href="index.php"><button class="btn btn-success" type="button">No, go back!</button></a>
-            </form>
-        </main>
-        <footer class="p-5">
-            <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
-        </footer>
-    </body>
+        <h3 class="mb-4">Do you really want to delete this product?</h3>
+        <form action="actions/a_delete.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id ?>" />
+            <input type="hidden" name="picture" value="<?php echo $picture ?>" />
+            <button class="btn btn-danger" type="submit">Yes, delete it!</button>
+            <a href="index.php"><button class="btn btn-success" type="button">No, go back!</button></a>
+        </form>
+    </main>
+    <footer class="p-5">
+        <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
+    </footer>
+</body>
 
 </html>

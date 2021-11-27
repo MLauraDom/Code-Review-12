@@ -6,7 +6,7 @@
         <?php require_once 'components/boot.php'?>    
     </head>
     <body class="bg-light">
-    <header>
+    <header class="header1">
         <div class="menu">
             <ul class="nav">
                 <nav class="navbar navbar-expand navbar-dark">
@@ -23,8 +23,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="displayAll.php">
-                                        Get API
+                                    <a class="nav-link" href="api/displayAll.php">
+                                        displayAll
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ajaxOffers.html">
+                                        Ajax Offers
                                     </a>
                                 </li>
                             </ul>

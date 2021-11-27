@@ -7,8 +7,8 @@ if ($_POST) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
-    $longitude = $_POST['longitude'];
     $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
     $picture = $_POST['picture'];
     //variable for upload pictures errors is initialized
     $uploadError = '';
@@ -16,9 +16,9 @@ if ($_POST) {
     $picture = file_upload($_FILES['picture']);//file_upload() called  
     if($picture->error===0){
         ($_POST["picture"]=="product.png")?: unlink("../pictures/places/$_POST[picture]");       
-        $sql = "UPDATE places SET name = '$name', price = $price, description = '$description', longitude = $longitude, latitude = $latitude, picture = '$picture->fileName'  WHERE id = {$id}";
+        $sql = "UPDATE places SET name = '$name', price = $price, description = '$description', latitude = $latitude, longitude = $longitude, picture = '$picture->fileName'  WHERE id = {$id}";
     }else{
-        $sql = "UPDATE places SET name = '$name', price = $price, description = '$description', longitude = $longitude, latitude = $latitude WHERE id = {$id}";
+        $sql = "UPDATE places SET name = '$name', price = $price, description = '$description', latitude = $latitude, longitude = $longitude WHERE id = {$id}";
     }
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";

@@ -34,9 +34,8 @@ if ($_GET['id']) {
     <?php require_once 'components/boot.php' ?>
     <link rel="stylesheet" type='text/css' href="css/style.css" />
 </head>
-
 <body class="bg-light">
-    <header>
+    <header style="background-image:url('pictures/places/<?php echo $picture ?>');background-repeat:no-repeat;background-position: center;background-size:cover;height:70vh;display:flex;justify-content: space-between;flex-direction: column;">
         <div class="menu">
             <ul class="nav">
                 <nav class="navbar navbar-expand navbar-dark">
@@ -53,8 +52,13 @@ if ($_GET['id']) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="displayAll.php">
-                                        Get API
+                                    <a class="nav-link" href="api/displayAll.php">
+                                        displayAll
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ajaxOffers.html">
+                                        Ajax Offers
                                     </a>
                                 </li>
                             </ul>
@@ -64,33 +68,51 @@ if ($_GET['id']) {
             </ul>
         </div>
         <div class="m-auto p-5">
-            <p class="h1 text-white text-center title">Mount Everest</p>
+            <p class="h1 text-white text-center title"><?php echo $name ?></p>
         </div>
     </header>
-    <main class="container p-5">
-        <div class='card m-3'>
-            <div class='row g-0'>
-                <div class='col-md-4'>
-                    <img src='pictures/places/<?php echo $picture ?>' alt='<?php echo $name ?>' class="img-fluid rounded-start">
+    <main>
+    <div class='m-5' style="height:50vh;">
+        <div class='row g-0'>
+            <div class='col-md-6' id="map" style="height:50vh;">
+                <script>
+                    var map;
+                    let loc = {
+                        lat: <?php echo $latitude ?>,
+                        lng: <?php echo $longitude ?>
+                    }
+
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: loc,
+                            zoom: 8
+                        });
+                        var pinpoint = new google.maps.Marker({
+                            position: loc,
+                            map: map
+                        });
+                    }
+                </script>
+            </div>
+            <div class='col-md-6'>
+                <div class='card-header'>
+                    <h5 class='card-title'><?php echo $name ?></h5>
                 </div>
-                <div class='col-md-8'>
-                    <div class='card-header'>
-                        <h5 class='card-title'><?php echo $name ?></h5>
-                    </div>
-                    <div class='card-body'>
-                        
-                        <p class='card-text'><?php echo $description ?></p>
-                    </div>
-                    <div class='card-footer'>
-                        <p class='card-text'><b><?php echo $price ?></b></p>
-                    </div>
+                <div class='card-body'>
+
+                    <p class='card-text'><?php echo $description ?></p>
+                </div>
+                <div class='card-footer'>
+                    <p class='card-text text-success h3'><b>€ <?php echo $price ?></b></p>
                 </div>
             </div>
         </div>
+    </div>
     </main>
     <footer class=" p-5">
         <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
     </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtjaD-saUZQ47PbxigOg25cvuO6_SuX3M&callback=initMap" async defer></script>
 </body>
 
 </html>

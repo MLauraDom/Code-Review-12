@@ -6,13 +6,13 @@ if ($_POST) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
-    $longitude = $_POST['longitude'];
     $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
     $uploadError = '';
     //this function exists in the service file upload.
     $picture = file_upload($_FILES['picture']);  
    
-    $sql = "INSERT INTO places(name, price, description, longitude, latitude, picture)  VALUES ( '$name', $price, '$description', $longitude, $latitude, '$picture->fileName')";
+    $sql = "INSERT INTO places(name, price, description, latitude, longitude, picture)  VALUES ( '$name', $price, '$description', $latitude, $longitude, '$picture->fileName')";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";

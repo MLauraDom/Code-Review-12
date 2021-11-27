@@ -61,8 +61,13 @@ mysqli_close($connect);
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="displayAll.php">
-                                        Get API
+                                    <a class="nav-link" href="api/displayAll.php">
+                                        displayAll
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ajaxOffers.html">
+                                        Ajax Offers
                                     </a>
                                 </li>
                             </ul>

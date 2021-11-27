@@ -9,9 +9,8 @@
     <link rel="stylesheet" type='text/css' href="css/style.css" />
 </head>
 
-<body>
 <body class="bg-light">
-    <header>
+    <header class="header1">
         <div class="menu">
             <ul class="nav">
                 <nav class="navbar navbar-expand navbar-dark">
@@ -28,8 +27,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="displayAll.php">
-                                        Get API
+                                    <a class="nav-link" href="api/displayAll.php">
+                                    displayAll
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ajaxOffers.html">
+                                        Ajax Offers
                                     </a>
                                 </li>
                             </ul>
@@ -62,14 +66,14 @@
                     <tr>
                         <th>Short Description</th>
                         <td><input class='form-control' type="text" name="description" placeholder="Short Description" /></td>
+                    </tr>                    
+                    <tr>
+                        <th>Latitude</th>
+                        <td><input class='form-control' type="float" name="latitude" placeholder="Latitude" /></td>
                     </tr>
                     <tr>
                         <th>Longitude</th>
-                        <td><input class='form-control' type="number" name="longitude" placeholder="Longitude" /></td>
-                    </tr>
-                    <tr>
-                        <th>Latitude</th>
-                        <td><input class='form-control' type="number" name="latitude" placeholder="Latitude" /></td>
+                        <td><input class='form-control' type="float" name="longitude" placeholder="Longitude" /></td>
                     </tr>
                     <tr>
                         <td><button class='btn btn-success' type="submit">Insert Place</button></td>
