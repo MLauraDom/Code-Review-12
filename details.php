@@ -73,9 +73,19 @@ if ($_GET['id']) {
         </div>
     </header>
     <main class="pt-5">
+
+        <form id="form">
+
+            <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
+            <input type="hidden" id="latitude" name="latitude" value="<?php echo $latitude ?>">
+            <input type="hidden" id="longitude" name="longitude" value="<?php echo $longitude ?>">
+            <input type="submit" value="Check the Weather" class="btn btn-info m-3">
+
+        </form>
         <div id="vreme">
-            <p class="btn btn-info m-3" id="check">Check the Wheather</p>
+
         </div>
+
         <div class='m-5' style="height:50vh;">
             <div class='row g-0'>
                 <div class='col-md-6' id="map" style="height:50vh;">
@@ -116,41 +126,29 @@ if ($_GET['id']) {
     <footer class=" p-5">
         <p class="h4 text-center text-white">Made by <a href="#">&#x24B8Laura Moldovan</a></p>
     </footer>
-    <!-- The API Adress it's not working, so i let it go... -->
     <script>
-        document.getElementById("check").addEventListener("click", showWeather, false);
+        document.getElementById("form").addEventListener("submit", getWeather);
 
-        function showWeather() {
-            const request = new XMLHttpRequest();
-            request.open("GET", 'https://api.darksky.net/forecast/e329256a741df2bcccffedd3600287c2/<?php echo $latitude.",".$longitude?>?exclude=minutely,hourly,daily,alerts,flags', true);
+        function getWeather(e) {
+            e.preventDefault();
+            let latitude = document.getElementById("latitude").value;
+            let longitude = document.getElementById("longitude").value;
+            let params = `latitude=${latitude}&longitude=${longitude}`;
+            console.log(params)
+            let request = new XMLHttpRequest();
+            request.open("POST", "api/weather.php", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.onload = function() {
                 if (this.status == 200) {
-                    let weather = JSON.parse(this.responseText);
-                    console.log(weather);
-                    let fahrenheit = weather.currently.temperature;
-                    let celsius = round((fahrenheit - 32) * (5 / 9), 2);
-                    if (celsius <= 0) {
-                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/ice.jpg' class='card-img' alt='Freezing Wheather'>";
-                    }
-                    else if(celsius>0 && celsius<=15) {
-                       let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/melt.jpg' class='card-img' alt='Cold Wheather'>";
-                    }
-                    else if(celsius>15 && celsius<=30) {
-                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/sun.jpg' class='card-img' alt='Warm Wheather'>";
-                    }
-                    else if(celsius > 30) {
-                        let wbody1 = "<div class='card bg-dark w-75 m-auto shadow-lg' style='height:17vw;'><img src='pictures/meteo/hot.jpg' class='card-img' alt='Hot Wheather'>";
-                    }
-                    let wbody2 = "<div class = 'card-img-overlay text-center'><h3 class = 'card-title meteo' > {$weather.timezone}</h1><div class = 'card-body meteo'>< p class = 'h5 meteo' > {$weather.currently.summary}</p><p class = 'h5 meteo' > {$celsius}° C </p> <p class = 'h5 meteo'> {$fahrenheit}°F </p></div></div></div > ";
-
-                    output = wbody1 + wbody2;
-                    document.getElementById('vreme').innerHTML = output;
-                    console.log(output);
+                    console.log(this.responseText)
+                    document.getElementById('vreme').innerHTML = this.responseText;
                 }
             }
-            request.send(); 
+            request.send(params);
+
         }
     </script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtjaD-saUZQ47PbxigOg25cvuO6_SuX3M&callback=initMap" async defer></script>
 </body>
 
